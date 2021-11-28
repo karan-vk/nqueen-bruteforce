@@ -22,3 +22,14 @@ fn main() {
         }
     }
 }
+#[cfg(test)]
+mod tests {
+    use crate::is_solution;
+
+    #[test]
+    fn it_works() {
+        let perm = vec![0, 1, 2, 3];
+        assert_eq!(is_solution(perm), false);
+        assert_eq!(is_solution(vec![2, 0, 3, 1]), true);
+    }
+}
