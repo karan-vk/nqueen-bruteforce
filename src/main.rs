@@ -1,7 +1,7 @@
 use itertools::Itertools;
 
-fn is_solution(perm: Vec<i32>, n: i32) -> bool {
-    for i in (0..n).into_iter().combinations(2) {
+fn is_solution(perm: Vec<i32>) -> bool {
+    for i in (0..perm.len() as i32).into_iter().combinations(2) {
         let x = i.first().unwrap().clone();
         let y = i.last().unwrap().clone();
         let a = ((x - y) as i32).abs();
@@ -16,8 +16,8 @@ fn is_solution(perm: Vec<i32>, n: i32) -> bool {
 fn main() {
     const N: i32 = 4;
     let x: Vec<i32> = (0..N).collect();
-    for perm in x.into_iter().permutations(N as usize) {
-        if is_solution(perm.to_vec(), N) {
+    for perm in x.clone().into_iter().permutations(N as usize) {
+        if is_solution(perm.to_vec()) {
             println!("{:?}", perm);
         }
     }
